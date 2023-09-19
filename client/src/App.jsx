@@ -5,13 +5,15 @@ import './App.css';
 const App = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showGrid, setShowGrid] = useState(true);  // You can change this to false if you want the grid to be hidden initially
+  const [showGrid, setShowGrid] = useState(true);// You can change this to false if you want the grid to be hidden initially
+  const [numberOfResults, setNumberOfResults] = useState(0);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
       .then((response) => response.json())
       .then((data) => {
         setImages(data);
+        setNumberOfResults(data.length);  // Setting the number of results
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,6 +33,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <h1 className='title' >Number of Results: {numberOfResults}</h1> 
       {
         isLoading ? (
           <Loading />
@@ -39,6 +42,7 @@ const App = () => {
           <div className="image-grid">
             {images.map((image) => (
               <div key={image.id} className="image-item">
+                <p>{image.title}</p>
                 <img 
                   src={image.thumbnailUrl} 
                   alt={image.title} 

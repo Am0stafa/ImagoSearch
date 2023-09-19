@@ -17,7 +17,19 @@
 .image-item img {
   max-width: 100%;
   height: auto;
-  cursor: pointer;  /* Adds a pointer cursor when hovering over the image */
+  cursor: pointer;  
 }
 
-/* Add any other styling you want for the loading component */
+.image-grid p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #030202;
+}
+
+.title{
+  font-size: 2em;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #fa89d2;
+}
