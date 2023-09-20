@@ -1,5 +1,9 @@
-import React,{ useState, useRef } from 'react'
-import './UploadPage.css'
+import React,{ useState, useRef } from 'react';
+import axios from 'axios';
+import './UploadPage.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const UploadPage = () => {
   const [files, setFiles] = useState([]);
@@ -27,13 +31,27 @@ export const UploadPage = () => {
 
   const handleFiles = (uploadedFiles) => {
     const fileList = Array.from(uploadedFiles);
-
+  
     fileList.forEach((file) => {
       parseFile(file);
       uploadFile(file);
     });
-
+  
     setFiles(fileList.map((file) => URL.createObjectURL(file)));
+  
+    const formData = new FormData();
+    fileList.forEach((file) => {
+      formData.append('images', file);
+    });
+  
+    axios.post('http://localhost:3000/upload', formData)
+      .then((res) => {
+        toast.success('Files uploaded successfully.');
+      })
+      .catch((err) => {
+        toast.error('Error uploading files.');
+        console.error(err);
+      });
   };
 
   const onFileChange = (e) => {
@@ -61,10 +79,6 @@ export const UploadPage = () => {
   return (
     <div>
       <h2>File Upload & Image Preview</h2>
-      <p className="lead">
-        No Plugins <b>Just Javascript</b>
-      </p>
-
       <form className="uploader">
         <input
           id="file-upload"
