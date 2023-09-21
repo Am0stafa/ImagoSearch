@@ -38,3 +38,16 @@ The system uses GraphQL for querying, allowing for a flexible and powerful way t
 ### 8. Text-Based Search with Google Vision API
 The system now also supports text-based searches using Google Vision API. This allows for object detection, facial recognition, and even text recognition within images, making the search functionality even more versatile.
 
+## Docker and Self-Hosting
+
+Our Reverse Image and Text Search engine is designed to be self-hosted, providing an extra layer of privacy and security. Docker plays a crucial role in this:
+
+- **Consistency**: Ensures the application runs the same on all systems.
+- **Isolation**: Improves security by isolating the application from the host system.
+- **Portability**: Easily move the application between different machines.
+- **Ease of Setup**: Get up and running with a single command.
+- **Version Control**: Easily switch between different versions of the application.
+- **Resource Efficiency**: More efficient use of system resources compared to traditional VMs.
+- **Network Configuration**: Simplifies network setups for communication with other services.
+
+To get started with self-hosting, simply
