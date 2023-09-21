@@ -3,13 +3,14 @@ import axios from 'axios';
 import './UploadPage.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Loading from 'react-loading';
 
 export const UploadPage = () => {
   const [files, setFiles] = useState([]);
   const [progress, setProgress] = useState(0);
   const [messages, setMessages] = useState([]);
   const fileInputRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   const onDragOver = (e) => {
     e.preventDefault();
@@ -45,8 +46,10 @@ export const UploadPage = () => {
     });
   
     axios.post('http://localhost:3000/upload', formData)
-      .then((res) => {
+      .then(async (res) => {
         toast.success('Files uploaded successfully.');
+        setProgress(100);
+        await analyzeImages();
       })
       .catch((err) => {
         toast.error('Error uploading files.');
@@ -54,6 +57,16 @@ export const UploadPage = () => {
       });
   };
 
+  const analyzeImages = async () => {
+    setLoading(true);
+
+    try {
+      await axios.get('http://localhost:3000/analyze');
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
   const onFileChange = (e) => {
     const selectedFiles = e.target.files;
     handleFiles(selectedFiles);
@@ -78,7 +91,16 @@ export const UploadPage = () => {
 
   return (
     <div>
+      {loading && (
+        <div className="loading">
+          <Loading type="spin" color="#000" height={50} width={50} />
+          <p>Labeling images...</p>
+        </div>
+      )}
       <h2>File Upload & Image Preview</h2>
+      <div>  
+        <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+      </div>
       <form className="uploader">
         <input
           id="file-upload"
