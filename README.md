@@ -1,5 +1,7 @@
 # Image-reverse-search
-Looking for a powerful yet straightforward way to sift through your extensive image collections? This Reverse Image Search engine is built just for you! Designed using advanced neural networks and vector databases, This search engine allows you to upload multiple images to your personal database. Once uploaded, simply search through them by uploading another image! Behind the scenes, the engine leverages JavaScript and the potent Weaviate vector database to perform the magic. For privacy, you will find below how to run it locally
+Looking for a powerful yet straightforward way to sift through your extensive image collections? This Reverse Image Search engine is built just for you! Designed using advanced neural networks and vector databases, This search engine allows you to upload multiple images to your personal database. Once uploaded, simply search through them by uploading another image! Behind the scenes, the engine leverages JavaScript and the potent Weaviate vector database to perform the magic. For privacy, you will find below how to run it locally.\
+\
+An extra layer of security and privacy to your project. Self-hosting ensures that users have full control over their data, which is particularly important for sensitive or personal images. 
 
 ## Key Takeaways
 
