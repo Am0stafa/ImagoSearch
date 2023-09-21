@@ -1,8 +1,17 @@
 # Image-reverse-search
-Looking for a powerful yet straightforward way to sift through your extensive image collections? This Reverse Image Search engine is built just for you! Designed using advanced neural networks and vector databases, This search engine allows you to upload multiple images to your personal database. Once uploaded, simply search through them by uploading another image! Behind the scenes, the engine leverages JavaScript and the potent Weaviate vector database to perform the magic. For privacy, you will find below how to run it locally.\
+Looking for a powerful yet straightforward way to sift through your extensive image collections? Do you find yourself lost in a sea of digital images, struggling to manage, organize, or even locate specific photos? This Reverse Image Search engine is built just for you! Designed using advanced neural networks and vector databases, This search engine allows you to upload multiple images to your personal database. Once uploaded, simply search through them by uploading another image and offer text-based search capabilities, thanks to the integration of Google Vision API! Behind the scenes, the engine leverages the potent neural networks, Weaviate vector database and Google Vision API  to perform the magic. For privacy, you will find below how to run it locally and to self-host it so that your images don't leave your device.\
 \
-An extra layer of security and privacy to your project. Self-hosting ensures that users have full control over their data, which is particularly important for sensitive or personal images. 
+An extra layer of security and privacy to your project. Self-hosting ensures that users have full control over their data, which is particularly important for sensitive or personal images. \
 
+### Why Choose This Engine?
+
+- **Multi-Modal Search**: Search by image or text to find exactly what you're looking for in your personal image collection, whether it's an image or a keyword like 'car,' our engine will find all relevant images in your collection.
+- **Advanced Technologies**: Utilizes state-of-the-art neural networks, the Weaviate vector database, and Google Vision API for precise and efficient search results. This is crucial for maintaining the confidentiality and security of your personal or sensitive images.
+- **Privacy and Security**: Designed to be self-hosted, your data never leaves your local machine, ensuring the utmost confidentiality and security of your personal or sensitive images.
+- **User-Friendly**: A simple upload adds your images to your personal database, making them instantly searchable.
+- **Tech Stack**: Built using a microservices architecture with Python and Node.js for the backend, and React for the frontend. The entire system is containerized using Docker for easy setup and deployment.
+
+Scroll down to discover how to set up and run this powerful, secure, and privacy-focused tool on your local machine.\
 ## Key Takeaways
 
 ### 1. Vector Databases
