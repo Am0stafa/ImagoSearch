@@ -19,7 +19,7 @@ app.post('/upload', (req, res) => {
   const { images: files } = req.files;
 
   if (!Array.isArray(files)) {
-    return res.status(400).json({ message: 'Invalid file type. Must be an array of images.' });
+    return res.status(400).json({ message: 'Invalid file type. Must be many images' });
   }
 
   const uploadPath = path.join(__dirname, 'img');
@@ -34,7 +34,6 @@ app.post('/upload', (req, res) => {
 
   res.status(200).json({ message: 'Files uploaded successfully.' });
 });
-
 
 // API endpoint for analyzing images
 app.get('/analyze', (req, res) => {
