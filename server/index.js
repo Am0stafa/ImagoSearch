@@ -35,7 +35,9 @@ await client.schema
 
 const schemaRes = await client.schema.getter().do();
 
-//convert an image to base64
+//Vectorizing to the database
+
+//convert an image to base64. and upload an image to the database
 const img = readFileSync('./img/test.jpg');
 
 const b64 = Buffer.from(img).toString('base64');
@@ -68,14 +70,14 @@ await Promise.all(promises);
 const test = Buffer.from( readFileSync('./test.jpg') ).toString('base64');
 
 const resImage = await client.graphql.get()
-  .withClassName('Meme')
+  .withClassName('reverseImageSearch')
   .withFields(['image'])
   .withNearImage({ image: test })
   .withLimit(1)
   .do();
 
 // Write result to filesystem
-const result = resImage.data.Get.Meme[0].image; // get the one most similar image
+const result = resImage.data.Get.reverseImageSearch[0].image; // get the one most similar image
 writeFileSync('./result.jpg', result, 'base64');
 
 

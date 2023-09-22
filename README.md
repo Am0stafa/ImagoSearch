@@ -50,4 +50,4 @@ Our Reverse Image and Text Search engine is designed to be self-hosted, providin
 - **Resource Efficiency**: More efficient use of system resources compared to traditional VMs.
 - **Network Configuration**: Simplifies network setups for communication with other services.
 
-To get started with self-hosting, simply
+To get started with self-hosting, I would recommend using docker desktop to get it set up quickly, simply
