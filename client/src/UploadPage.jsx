@@ -1,7 +1,7 @@
 import React,{ useState, useRef } from 'react';
 import axios from 'axios';
 import './UploadPage.css';
-import { toast } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from 'react-loading';
 
@@ -45,11 +45,21 @@ export const UploadPage = () => {
       formData.append('images', file);
     });
   
-    axios.post('http://localhost:3000/upload', formData)
+    axios.post('http://localhost:8000/upload', formData)
       .then(async (res) => {
-        toast.success('Files uploaded successfully.');
+        toast.success(res.data.message, {
+          position: "top-center",
+          autoClose: 5013,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        console.log(res.data.message)
         setProgress(100);
-        await analyzeImages();
+        // await analyzeImages();
       })
       .catch((err) => {
         toast.error('Error uploading files.');
@@ -154,6 +164,7 @@ export const UploadPage = () => {
           <img key={index} id={`file-image-${index}`} src={file} alt="Preview" width="100" />
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request
 from google.cloud import vision
-from google.cloud.vision import types
+from google.cloud.vision_v1 import types
 
 app = Flask(__name__)
 
