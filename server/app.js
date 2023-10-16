@@ -52,7 +52,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // const schemaRes = await client.schema.getter().do();
 
-
 // API endpoint
 app.post('/upload', (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
